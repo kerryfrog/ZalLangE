@@ -1,0 +1,10 @@
+html(lang="en")
+    head
+        link(rel="stylesheet", href="https://unpkg.com/mvp.css")
+    body 
+        h3 login
+        form(action="/users" method="POST")
+            input(type="text", name ="nickname", placeholder="nickname")
+            input(type="text", name ="id", placeholder="id")
+            input(type="password", name ="password", placeholder="password")
+            button(type="submit") Sign up 
