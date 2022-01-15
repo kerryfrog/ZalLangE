@@ -1,4 +1,4 @@
-// sing up code 
+// 계정 생성 code 
 var express = require('express');
 var crypto = require('crypto');
 var db = require('../lib/db');
@@ -14,11 +14,11 @@ router.post('/', function(req, res, next) {
     console.log(req.body);
     crypto.pbkdf2(req.body.password, salt, 310000, 32, 'sha256', function(err, hashedPassword) {
       if (err) { return next(err); }
-      db.run('INSERT INTO users (username, hashed_password, salt, name) VALUES (?, ?, ?, ?)', [
-        req.body.username,
+      db.run('INSERT INTO users (id, hashed_password, salt, nickname) VALUES (?, ?, ?, ?)', [
+        req.body.id,
         hashedPassword,
         salt,
-        req.body.name
+        req.body.nickname
       ], 
       function(err) {
         if (err) { return next(err); }
@@ -34,9 +34,5 @@ router.post('/', function(req, res, next) {
       });
     });
   });
-
-
-
-
 
 module.exports = router;

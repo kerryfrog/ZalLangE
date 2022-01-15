@@ -1,10 +1,11 @@
-html(lang="en")
+html
     head
+        <meta charset="utf-8">
         link(rel="stylesheet", href="https://unpkg.com/mvp.css")
     body 
-        h3 login
+        h3 회원가입
         form(action="/users" method="POST")
             input(type="text", name ="nickname", placeholder="nickname")
             input(type="text", name ="id", placeholder="id")
             input(type="password", name ="password", placeholder="password")
-            button(type="submit") Sign up 
+            button(type="submit") 생성
