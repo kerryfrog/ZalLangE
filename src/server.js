@@ -2,10 +2,12 @@ import express from "express";
 import passport from "passport";
 import logger from 'morgan';
 
+
 // Router 정의
 var userRouter = require('../routes/users');
 var authRouter = require('../routes/auth');
 var myaccountRouter = require('../routes/myaccount');
+var testRouter = require("../routes/test");
 const app =express();
 
 require('../boot/db')();
@@ -23,7 +25,8 @@ app.use("/public",express.static(__dirname +"/public"));
 //미들웨어
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(require('express-session')({ secret:'keyboard cat',resave: false, saveUninitialized: false }));
+app.use(require('express-session')({ 
+    secret:'keyboard cat',resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.authenticate('session'));
 
@@ -35,7 +38,7 @@ app.get ("/", (req, res) => res.render("home"));
 app.use('/',authRouter); 
 app.use('/myaccount', myaccountRouter);
 app.use('/users',userRouter)
-
+app.use('/test', testRouter);
 
 //서버 생성
 const handleListen =() => console.log(`Listenning on http://localhost:3000`);

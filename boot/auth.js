@@ -5,35 +5,25 @@ var db = require('../lib/db');
 
 
 module.exports = function() {
-
-  // Configure the local strategy for use by Passport.
-  //
-  // The local strategy requires a `verify` function which receives the credentials
-  // (`username` and `password`) submitted by the user.  The function must verify
-  // that the password is correct and then invoke `cb` with a user object, which
-  // will be set at `req.user` in route handlers after authentication.
-  passport.use(new Strategy(function(username, password, cb) {
-    db.get('SELECT rowid AS id, * FROM users WHERE username = ?', [ username ], function(err, row) {
-      if (err) { return cb(err); }
-      if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
+  passport.use(new Strategy(function(id, password, done) {
+    db.get('SELECT rowid AS id, * FROM users WHERE id = ?', [ id ], function(err, row) {
+      if (err) { return done(err); }
+      if (!row) { return done(null, false, { message: 'Incorrect username or password.' }); }
       
       crypto.pbkdf2(password, row.salt, 310000, 32, 'sha256', function(err, hashedPassword) {
-        if (err) { return cb(err); }
+        if (err) { return done(err); }
         if (!crypto.timingSafeEqual(row.hashed_password, hashedPassword)) {
-          return cb(null, false, { message: 'Incorrect username or password.' });
-        }
-        
+          return done(null, false, { message: 'Incorrect username or password.' });
+        } 
         var user = {
           id: row.id.toString(),
-          username: row.username,
-          displayName: row.name
+          nickname: row.nickname
         };
-        return cb(null, user);
+        console.log(user);
+        return done(null, user);
       });
     });
   }));
-
-
   // Configure Passport authenticated session persistence.
   //
   // In order to restore authentication state across HTTP requests, Passport needs
@@ -43,7 +33,8 @@ module.exports = function() {
   // deserializing.
   passport.serializeUser(function(user, cb) {
     process.nextTick(function() {
-      cb(null, { id: user.id, username: user.username });
+      //세션에 저장하는 코드 
+      cb(null, { id: user.id, nickname: user.nickname });
     });
   });
 
