@@ -5,14 +5,15 @@ var db = require('../lib/db');
 var router = express.Router();
 
 //query test
-router.get('/', function(res, req, next){    
-    db.get('SELECT rowid AS id, * FROM users WHERE id = ?', [ '000dasom' ], 
+router.get('/', function(res, req, next){ 
+    console.log(req);
+    console.log(" ");   
+    db.get('SELECT rowid AS id, * FROM users WHERE id = ?', [ req.user.id ], 
     function(err, row) {
         if (err) { return next(err); }
         console.log(row);
-        req.render(home);
+        res.send(row);
     });       
-    
 });
 
 module.exports = router;

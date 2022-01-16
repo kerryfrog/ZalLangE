@@ -6,7 +6,7 @@ var db = require('../lib/db');
 
 module.exports = function() {
   passport.use(new Strategy(function(id, password, done) {
-    db.get('SELECT rowid AS id, * FROM users WHERE id = ?', [ id ], function(err, row) {
+    db.get('SELECT rowid AS rowid, * FROM users WHERE id = ?', [ id ], function(err, row) {
       if (err) { return done(err); }
       if (!row) { return done(null, false, { message: 'Incorrect username or password.' }); }
       
@@ -15,31 +15,28 @@ module.exports = function() {
         if (!crypto.timingSafeEqual(row.hashed_password, hashedPassword)) {
           return done(null, false, { message: 'Incorrect username or password.' });
         } 
+        //console.log(row);
         var user = {
-          id: row.id.toString(),
-          nickname: row.nickname
+          rowid: row.rowid.toString(),
+          id: row.id
         };
-        console.log(user);
+        //console.log("boot/auth.js user", user);
         return done(null, user);
       });
     });
   }));
-  // Configure Passport authenticated session persistence.
-  //
-  // In order to restore authentication state across HTTP requests, Passport needs
-  // to serialize users into and deserialize users out of the session.  The
-  // typical implementation of this is as simple as supplying the user ID when
-  // serializing, and querying the user record by ID from the database when
-  // deserializing.
+
   passport.serializeUser(function(user, cb) {
     process.nextTick(function() {
       //세션에 저장하는 코드 
-      cb(null, { id: user.id, nickname: user.nickname });
+      //console.log("serialize");
+      cb(null, { rowid: user.rowid, id: user.id });
     });
   });
 
   passport.deserializeUser(function(user, cb) {
     process.nextTick(function() {
+      //console.log("deseriallize");
       return cb(null, user);
     });
   });
