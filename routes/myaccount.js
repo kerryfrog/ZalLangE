@@ -8,20 +8,29 @@ var router = express.Router();
 /* GET users listing. */
 router.get('/',
   ensureLoggedIn(),
-  function(req, res, next) {
-    db.get('SELECT rowid AS rowid, nickname, id FROM users WHERE rowid = ?', [ req.user.rowid ], 
-    function(err, row) {
-      if (err) { return next(err); }
-      console.log( row);
-      var user = {
-        rowid: row.rowid.toString(),
-        nickname: row.nickname,
-        id : row.id
-      };
-      res.render('profile', {
-       user:user
+  function (req, res, next) {
+    db.get('SELECT rowid AS rowid, nickname, id FROM users WHERE rowid = ?', [req.user.rowid],
+      function (err, row) {
+        if (err) { return next(err); }
+        console.log(row);
+        var user = {
+          rowid: row.rowid.toString(),
+          nickname: row.nickname,
+          id: row.id
+        };
+        res.render('profile', {
+          user: user
+        });
       });
-    });
   });
 
 module.exports = router;
+var express = require('express');
+var passport = require('passport');
+
+var router = express.Router();
+
+/* GET users listing. */
+router.get('/myaccount', function (req, res, next) {
+  res.render('profile');
+});
