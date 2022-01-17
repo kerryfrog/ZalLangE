@@ -25,12 +25,3 @@ router.get('/',
   });
 
 module.exports = router;
-var express = require('express');
-var passport = require('passport');
-
-var router = express.Router();
-
-/* GET users listing. */
-router.get('/myaccount', function (req, res, next) {
-  res.render('profile');
-});
