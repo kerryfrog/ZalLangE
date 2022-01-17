@@ -1,14 +1,11 @@
-html(lang="en")
+html
+    include header.pug
     head
         title Trade
         link(rel="stylesheet", href="https://unpkg.com/mvp.css")
+        style 
     body
         header
-            h3 Let's Trade Photo 
+            h1 Let's Trade Photo 
         main
-            a(href="/login") login
-            p
-            a(href="/users/new") Sign Up
-            p
-            a(href="/myaccount")  profile
         script(src="/public/js/app.js") 

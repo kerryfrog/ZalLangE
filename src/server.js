@@ -1,7 +1,6 @@
 import express from "express";
 import passport from "passport";
 import logger from 'morgan';
-import cookieParser from "cookie-parser";
 
 // Router 정의
 var userRouter = require('../routes/users');
@@ -25,7 +24,7 @@ app.use("/public",express.static(__dirname +"/public"));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+//app.use(cookieParser());
 app.use(require('express-session')({ 
     secret:'keyboard cat',resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
@@ -41,7 +40,7 @@ app.use(passport.authenticate('session'));
 
 
 //home 경로 지정 
-app.get ("/", (req, res) => res.render("home"));
+app.get ("/", (req, res) => res.render("home",{user: req.user}));
 
 //router 연결
 app.use('/',authRouter); 
