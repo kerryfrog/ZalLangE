@@ -1,6 +1,5 @@
 var db = require('../lib/db');
 
-
 module.exports = function () {
 
   db.serialize(function () {
