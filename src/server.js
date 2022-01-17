@@ -39,7 +39,6 @@ app.use(function (req, res, next) {
 });
 app.use(passport.authenticate('session'));
 
-
 //home 경로 지정 
 app.get("/", (req, res) => res.render("home", { user: req.user }));
 
