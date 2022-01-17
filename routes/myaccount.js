@@ -9,12 +9,12 @@ var router = express.Router();
 router.get('/',
   ensureLoggedIn(),
   function(req, res, next) {
-    db.get('SELECT rowid AS id, nickname, id FROM users WHERE rowid = ?', [ req.user.rowid ], 
+    db.get('SELECT rowid AS rowid, nickname, id FROM users WHERE rowid = ?', [ req.user.rowid ], 
     function(err, row) {
       if (err) { return next(err); }
       console.log( row);
       var user = {
-        rowid: row.id.toString(),
+        rowid: row.rowid.toString(),
         nickname: row.nickname,
         id : row.id
       };
