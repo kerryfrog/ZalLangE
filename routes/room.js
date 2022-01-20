@@ -3,9 +3,7 @@ var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 var db = require('../lib/db');
 
 var router = express.Router();
-//profile 부분을 정의 
 
-/* GET users listing. */
 router.get('/',
   ensureLoggedIn(),
   function (req, res, next) {
@@ -18,7 +16,7 @@ router.get('/',
           nickname: row.nickname,
           id: row.id
         };
-        res.render('profile', {
+        res.render('deal', {
           user: user
         });
       });

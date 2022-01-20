@@ -7,7 +7,7 @@
     "dev": "nodemon"
   },
   "dependencies": {
-    "@babel/preset-env": "^7.16.8",
+    "@babel/node": "^7.16.8",
     "body-parser": "^1.19.1",
     "connect-ensure-login": "^0.1.1",
     "cookie-parser": "^1.4.6",
@@ -21,5 +21,10 @@
     "passport-local": "^1.0.0",
     "pug": "^3.0.2",
     "sqlite3": "^4.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.8",
+    "babel-loader": "^8.2.3"
   }
 }

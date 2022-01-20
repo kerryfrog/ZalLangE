@@ -1,9 +1,7 @@
 var db = require('../lib/db');
 
-
-module.exports = function() {
-
-  db.serialize(function() {
+module.exports = function () {
+  db.serialize(function () {
     db.run("CREATE TABLE IF NOT EXISTS users ( \
       id TEXT UNIQUE, \
       hashed_password BLOB, \
@@ -11,7 +9,5 @@ module.exports = function() {
       nickname TEXT \
     )");
   });
-
   //db.close();
-
 };
