@@ -7,6 +7,7 @@ var userRouter = require('../routes/users');
 var authRouter = require('../routes/auth');
 var myaccountRouter = require('../routes/myaccount');
 var testRouter = require("../routes/test");
+var PhotoRouter = require('../routes/upload_photo');
 var roomRouter = require('../routes/room');
 const app = express();
 
@@ -52,7 +53,7 @@ app.use('/myaccount', myaccountRouter);
 app.use('/users', userRouter);
 app.use('/test', testRouter);
 app.use('/room', roomRouter);
-
+app.use('/photo');
 //서버 생성
 const handleListen = () => console.log(`Listening on http://localhost:3000`);
 app.listen(3000, handleListen);
