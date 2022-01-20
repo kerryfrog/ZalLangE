@@ -18,5 +18,5 @@ router.get('/logout', function (req, res, next) {
   req.logout();
   res.redirect('/');
 });
-
+//모듈에 등록해야 server.js에서 app.use 함수를 통해서 사용 가능
 module.exports = router;
