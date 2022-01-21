@@ -1,0 +1,17 @@
+extends ../PUG/_bootstrap
+
+append styles
+	link(href='..PUG/css/signin.css', rel='stylesheet')
+block body
+	.container
+		form.form-signin(action="/users" method="POST")
+			h2.form-signin-heading Please Sign In
+			label.sr-only(for='nickname') Nickname
+			input#inputNick.form-control(type="text", name ="username", placeholder="nickname")
+			label.sr-only(for='id') Id
+			input#inputNick.form-control(type="text", name ="username", placeholder="id")
+			label.sr-only(for='inputPassword') Password
+			input#inputPassword.form-control(type="password", name ="password", placeholder="password")
+			p
+            
+			button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
