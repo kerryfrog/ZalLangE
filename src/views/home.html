@@ -1,14 +1,15 @@
 <html>
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"-->
-    <link href="../views/bootstrap/header.css" rel="stylesheet" id="bootstrap-css">
+    <link href="../public/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+    <!--link href="../public/bootstrap_main/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"-->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <title>Trade</title>
 
@@ -16,53 +17,47 @@
 
 <body>
     <header>
-        <!-- Second navbar for sign in -->
-        <nav class="navbar navbar-default">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#navbar-collapse-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">ZalLangE</a>
-                </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">ZalLangE</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03"
+                    aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navbar-collapse-2">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Works</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li>
-                            <a class="btn btn-default btn-outline btn-circle" data-toggle="collapse"
-                                href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Sign in</a>
+                <div class="collapse navbar-collapse" id="navbarColor03">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Home
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                                aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
                         </li>
                     </ul>
-                    <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse2">
-                        <form class="navbar-form navbar-right form-inline" role="form">
-                            <div class="form-group">
-                                <label class="sr-only" for="Email">Email</label>
-                                <input type="email" class="form-control" id="Email" placeholder="Email" autofocus
-                                    required />
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="Password">Password</label>
-                                <input type="password" class="form-control" id="Password" placeholder="Password"
-                                    required />
-                            </div>
-                            <button type="submit" class="btn btn-success">Sign in</button>
-                        </form>
-                    </div>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container -->
-        </nav><!-- /.navbar -->
+                    <button type="submit" class="btn btn-success">Sign in</button>
+                </div>
+            </div>
+        </nav>
+
 
         <% if (user) { %>
             <ul>
@@ -90,10 +85,10 @@
                 <%} %>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <script type="text/javascript" src="../public/bootstrap_main/js/bootstrap.js"></script>
 
     <footer>
-        <span>&copy 짤랑이거래</span>
+        <p>&copy 짤랑이거래</p>
     </footer>
 </body>
 
