@@ -1,0 +1,20 @@
+extends ../PUG/_bootstrap
+
+append styles
+	link(href='..PUG/css/signin.css', rel='stylesheet')
+block body
+	.container
+		form.form-signin(action="/login/password" method="POST")
+			h2.form-signin-heading Please Log In
+			label.sr-only(for='inputId') Id
+			input#inputId.form-control(type="text", name ="username", placeholder="id")
+			label.sr-only(for='inputPassword') Password
+			input#inputPassword.form-control(type="password", name ="password", placeholder="password")
+			.checkbox
+				label
+					input(type='checkbox', value='remember-me')
+					|  Remember me
+			button.btn.btn-lg.btn-primary.btn-block(type='submit') Log in
+		div
+			p or
+			a(href='/users/new') Create Account

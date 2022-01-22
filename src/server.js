@@ -14,8 +14,12 @@ require('../boot/db')();
 require('../boot/auth')(); // 인증
 
 //views의 엔진 설정
-app.set('view engine', "pug");
-app.set("views", __dirname + "/views"); // Pug위치
+
+app.set("views", __dirname + "/views"); // view 경로설정
+
+//app.set('view engine', "pug");
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
 
 // user에게 public folder를 사용가능하게 제공 /public 이동시 public폴더를 볼 수있음 
 //express.static : express의 정적 파일 제공
@@ -41,7 +45,7 @@ app.use(function (req, res, next) {
 app.use(passport.authenticate('session'));
 
 //home 경로 지정 
-app.get("/", (req, res) => res.render("home", { user: req.user }));
+app.get("/", (req, res) => res.render("home.html", { user: req.user }));
 
 //router 연결
 //request 요청 URL과 처리 로직을 선언한 라우팅 모듈 매핑
