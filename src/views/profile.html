@@ -86,11 +86,8 @@
     </header>
     <main class="c-main-container">
         <h1>Let's trade photo</h1>
-        <% if (user) { %>
-            <a href="/room"> 이거랑 거래할 거 있나요?</a>
-            <%} else {%>
-                <p>You haven't logged in yet. Please log in.</p>
-                <%} %>
+        <p>id: #{user.id} </p>
+        <p>nickname : #{user.nickname}</p>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="../public/bootstrap_main/js/bootstrap.js"></script>
