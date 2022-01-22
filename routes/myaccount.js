@@ -18,7 +18,7 @@ router.get('/',
           nickname: row.nickname,
           id: row.id
         };
-        res.render('profile', {
+        res.render('profile.html', {
           user: user
         });
       });

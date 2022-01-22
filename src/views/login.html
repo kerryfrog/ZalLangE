@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-        <!--link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"-->
-        <link href="../public/bootstrap.css" rel="stylesheet" id="bootstrap-css">
-        <!--link href="../public/bootstrap_main/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"-->
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-        <title>짤랑이거래</title>
-    </head>
-    <body>
-        <form>
-            <input>
-            <input>
-            <button></button>
-        </form>
-    </body>
-</html>
 
-<!--
-html(lang="en")
-    head
-        title Trade
-        link(rel="stylesheet", href="https://unpkg.com/mvp.css")       
-    body 
-        h3 로그인
-        form(action="/login/password" method="POST")
-            input(type="text", name ="username", placeholder="id")
-            input(type="password", name ="password", placeholder="password")
-            button(type="submit") 로그인
-        div
-            p or
-            a(href='/users/new') Create Account -->
-            
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"-->
+    <link href="../public/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+    <!--link href="../public/bootstrap_main/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"-->
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <title>짤랑이거래</title>
+</head>
+
+<body>
+    <h1>Let's trade photo - ZalLangE</h1>
+    <div class="c-login-container">
+        <form action="/login/password" method="POST">
+            <p><input type="text" , name="username" , placeholder="id"></p>
+            <p><input type="password" , name="password" , placeholder="password"></p>
+            <button type="submit" class="btn btn-primary">Log in</button>
+        </form>
+    </div>
+    <div>
+        <p> or</p>
+        <a href='/users/new'> Create Account</a>
+    </div>
+</body>
+
+</html>
