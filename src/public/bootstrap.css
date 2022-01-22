@@ -79,7 +79,10 @@
 }
 
 body {
-  margin: 0;
+  margin-top: 1rem;
+  margin-left: 20rem;
+  margin-right: 20rem;
+  margin-bottom: 1rem;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
@@ -4288,7 +4291,7 @@ fieldset:disabled .btn {
   justify-content: space-between;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  margin: 1rem;
+  margin: 0;
 }
 
 .navbar > .container,
@@ -11793,4 +11796,20 @@ pre {
 
 .img-thumbnail {
   border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+}
+
+
+/* custom style 
+class name always starts with letter 'c' */
+
+.c-always-margin {
+  margin-top: 1rem;
+  margin-left: 20rem;
+  margin-right: 20rem;
+}
+
+.c-main-container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  min-height: 500px;
 }

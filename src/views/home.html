@@ -11,7 +11,14 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <title>Trade</title>
+
+    <script type="text/javaScript">
+        function goLogin(){
+             location.href = "/login";
+        }
+    </script>
+
+    <title>짤랑이거래</title>
 
 </head>
 
@@ -53,35 +60,32 @@
                             </div>
                         </li>
                     </ul>
-                    <button type="submit" class="btn btn-success">Sign in</button>
+                    <% if (user) { %>
+                        <ul>
+                            <li>
+                                <a href="/myaccount"> Profile </a>
+                            </li>
+                            <li>
+                                <a href="/logout"> Logout</a>
+                            </li>
+                        </ul>
+                        <%} else {%>
+                            <button type="submit" onclick="goLogin()" class="btn btn-primary">Log in</button>
+
+                            <%} %>
                 </div>
             </div>
         </nav>
 
 
-        <% if (user) { %>
-            <ul>
-                <li>
-                    <a href="/myaccount"> Profile </a>
-                </li>
-                <li>
-                    <a href="/logout"> Logout</a>
-                </li>
-            </ul>
-            <%} else {%>
-                <ul>
-                    <li>
-                        <a href="/login">Login</a>
-                    </li>
-                </ul>
-                <%} %>
-                    <h1>Let's trade photo</h1>
+
     </header>
-    <main>
+    <main class="c-main-container">
+        <h1>Let's trade photo</h1>
         <% if (user) { %>
             <a href="/room"> 이거랑 거래할 거 있나요?</a>
             <%} else {%>
-                <p>pls login</p>
+                <p>You haven't logged in yet. Please log in.</p>
                 <%} %>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
