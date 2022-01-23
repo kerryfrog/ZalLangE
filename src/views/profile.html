@@ -90,7 +90,7 @@
         <p>nickname : <%= user.nickname %></p>
         <h3> my Zals </h3>
         <% if(src_row) { %>
-            <%= tmp.substring(1, tmp.length-1) %>
+            <% var tmp = JSON.stringify(src_row.image_src) %>
             <img src ="<%= tmp.substring(1, tmp.length-1) %>" >   
         <% } %>
     
