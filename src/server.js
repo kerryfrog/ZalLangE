@@ -12,11 +12,7 @@ var photoRouter =require('../routes/photo');
 
 const app = express();
 // 사진 업로드 
-const multer =require('multer')
-//사진 업로드 경로 설정 
-const upload = multer({ 
-  dest: __dirname+'/public/image', // 이미지 업로드 경로
-}) 
+
 
 require('../boot/db')();
 require('../boot/auth')(); // 인증
@@ -63,7 +59,7 @@ app.use('/myaccount', myaccountRouter);
 app.use('/users', userRouter);
 app.use('/test', testRouter);
 app.use('/room', roomRouter);
-//app.use('/photo', photoRouter);
+app.use('/photo', photoRouter);
 app.use('/', authRouter);
 //서버 생성
 const handleListen = () => console.log(`Listening on http://localhost:3000`);
