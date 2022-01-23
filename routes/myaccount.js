@@ -18,9 +18,8 @@ router.get('/',
           nickname: row.nickname,
           id: row.id
         };
-        res.render('profile.html', {
-          user: user
-        });
+        console.log(typeof(user));
+        res.render('profile.html', {user: user});
       });
   });
 

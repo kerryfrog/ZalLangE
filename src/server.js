@@ -9,7 +9,14 @@ var myaccountRouter = require('../routes/myaccount');
 var testRouter = require("../routes/test");
 var roomRouter = require('../routes/room');
 var photoRouter =require('../routes/photo');
+
 const app = express();
+// 사진 업로드 
+const multer =require('multer')
+//사진 업로드 경로 설정 
+const upload = multer({ 
+  dest: __dirname+'/public/image', // 이미지 업로드 경로
+}) 
 
 require('../boot/db')();
 require('../boot/auth')(); // 인증
@@ -36,7 +43,6 @@ app.use(require('express-session')({
 }));
 app.use(passport.initialize());
 app.use(function (req, res, next) {
-  console.log("middleware function");
   var msgs = req.session.messages || [];
   res.locals.messages = msgs;
   res.locals.hasMessages = !!msgs.length;
@@ -52,13 +58,13 @@ app.get("/", (req, res) => res.render("home.html", { user: req.user }));
 //request 요청 URL과 처리 로직을 선언한 라우팅 모듈 매핑
 //express에서 라우팅 == 클라이언트로부터 요청받은 URL과 뷰를 매칭
 //사전적인 의미 그대로 특정한 URL에 대해 특정한 뷰로 연결
-app.use('/', authRouter);
+
 app.use('/myaccount', myaccountRouter);
 app.use('/users', userRouter);
 app.use('/test', testRouter);
 app.use('/room', roomRouter);
-app.use('/photo', photoRouter);
-
+//app.use('/photo', photoRouter);
+app.use('/', authRouter);
 //서버 생성
 const handleListen = () => console.log(`Listening on http://localhost:3000`);
 app.listen(3000, handleListen);
