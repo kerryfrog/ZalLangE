@@ -86,12 +86,8 @@
     </header>
     <main class="c-main-container">
         <h1>Let's trade photo</h1>
-        <script>
-            var userInfo = ``;
-            userInfo += `<p>id: ${user.id} </p>`;
-            userInfo += `<p>nickname : ${user.nickname}</p>`;
-            document.getElementById("user").innerHTML = userInfo;
-        </script>
+        <p>id: <%= user.id %> </p>
+        <p>nickname : <%= user.nickname %></p>
         <div id="user"></div>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
