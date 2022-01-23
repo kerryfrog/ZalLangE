@@ -18,7 +18,8 @@ module.exports = function() {
         //console.log(row);
         var user = {
           rowid: row.rowid.toString(),
-          id: row.id
+          id: row.id,
+          nickname: row.nickname  
         };
         //console.log("boot/auth.js user", user);
         return done(null, user);
@@ -30,7 +31,7 @@ module.exports = function() {
     process.nextTick(function() {
       //세션에 저장하는 코드 
       //console.log("serialize");
-      cb(null, { rowid: user.rowid, id: user.id });
+      cb(null, { rowid: user.rowid, id: user.id, nickname:user.nickname });
     });
   });
 

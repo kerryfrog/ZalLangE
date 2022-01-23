@@ -9,5 +9,9 @@ module.exports = function () {
       nickname TEXT \
     )");
   });
+    db.run("CREATE TABLE IF NOT EXISTS images(\
+      image_src TEXT, \
+      owner INTEGER\
+      )");
   //db.close();
 };

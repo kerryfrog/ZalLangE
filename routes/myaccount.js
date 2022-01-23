@@ -9,16 +9,17 @@ var router = express.Router();
 router.get('/',
   ensureLoggedIn(),
   function (req, res, next) {
+    //console.log(req.user)
     db.get('SELECT rowid AS rowid, nickname, id FROM users WHERE rowid = ?', [req.user.rowid],
       function (err, row) {
         if (err) { return next(err); }
-        console.log(row);
+        //console.log(row);
         var user = {
           rowid: row.rowid.toString(),
           nickname: row.nickname,
           id: row.id
         };
-        console.log(typeof(user));
+        //console.log(typeof(user));
         res.render('profile.html', {user: user});
       });
   });
