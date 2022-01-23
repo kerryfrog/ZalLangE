@@ -88,13 +88,20 @@
         <h1>Let's trade photo</h1>
         <p>id: <%= user.id %> </p>
         <p>nickname : <%= user.nickname %></p>
+        <h3> my Zals </h3>
+        <% if(src_row) { %>
+            <%= tmp.substring(1, tmp.length-1) %>
+            <img src ="<%= tmp.substring(1, tmp.length-1) %>" >   
+        <% } %>
+    
 
+        <hr>
         <h3> upload photo </h3>
         <form action="/photo/upload" enctype="multipart/form-data" method="post">
         <input type="file" name="upload_photo">
         <button type="submit" class="btn btn-primary">Upload</button>
         </form>
-        <hr>
+        
 
 
     </main>

@@ -6,22 +6,21 @@ var router = express.Router();
 //profile 부분을 정의 
 
 /* GET users listing. */
-router.get('/',
-  ensureLoggedIn(),
+router.get('/', ensureLoggedIn(),
   function (req, res, next) {
-    //console.log(req.user)
-    db.get('SELECT rowid AS rowid, nickname, id FROM users WHERE rowid = ?', [req.user.rowid],
-      function (err, row) {
-        if (err) { return next(err); }
-        //console.log(row);
-        var user = {
-          rowid: row.rowid.toString(),
-          nickname: row.nickname,
-          id: row.id
-        };
-        //console.log(typeof(user));
-        res.render('profile.html', {user: user});
-      });
-  });
+    // 해당 계정이 가지고 있는 img src 불러오기 
+      db.get("SELECT image_src FROM images WHERE owner=?",
+        [req.user.id], 
+        function(err, row){
+          if(err) {return next(err);}
+          console.log("query answer is :",row);
+          res.render('profile.html',{
+              user:req.user,
+              src_row:row
+          });          
+        } //end function(err , row )
+             
+        ) // end db.get     
+}); //end router.get
 
 module.exports = router;

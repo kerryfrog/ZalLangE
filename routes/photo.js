@@ -13,16 +13,16 @@ router.post('/upload', upload.single('upload_photo'), function (req, res, next) 
         console.log("No File upload");
     }
     else {
-        console.log(req.file.filename);
-        console.log(req.user);
-        var imgsrc = 'http://127.0.0.1:3000/image/' + req.file.filename
+       // console.log(req.file.filename);
+       // console.log(req.user);
+        var imgsrc = 'http://127.0.0.1:3000/public/image/' + req.file.filename
         var insertData = "INSERT INTO images(image_src, owner) VALUES(?, ?)"
         db.run(insertData, [imgsrc, req.user.id], (err, result) => {
             if (err) throw err
             console.log("file uploaded")
         })
-        console.log(req.user);
-        res.redirect("/myaccount")
+        //console.log(req.user);
+        res.redirect("/myaccount");
     } 
 }) //end router.post
   
