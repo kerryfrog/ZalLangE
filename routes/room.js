@@ -4,7 +4,8 @@ var db = require('../lib/db');
 
 var router = express.Router();
 
-router.get('/',
+
+router.post('/room',
   ensureLoggedIn(),
   function (req, res, next) {
     db.get('SELECT rowid AS rowid, nickname, id FROM users WHERE rowid = ?', [req.user.rowid],
@@ -16,7 +17,7 @@ router.get('/',
           nickname: row.nickname,
           id: row.id
         };
-        res.render('deal', {
+        res.render('deal.html', {
           user: user
         });
       });

@@ -6,13 +6,12 @@ import logger from 'morgan';
 var userRouter = require('../routes/users');
 var authRouter = require('../routes/auth');
 var myaccountRouter = require('../routes/myaccount');
-var testRouter = require("../routes/test");
+var testRouter = require('../routes/test');
 var roomRouter = require('../routes/room');
-var photoRouter =require('../routes/photo');
+var photoRouter = require('../routes/photo');
 
 const app = express();
 // 사진 업로드 
-
 
 require('../boot/db')();
 require('../boot/auth')(); // 인증
@@ -22,7 +21,7 @@ require('../boot/auth')(); // 인증
 app.set("views", __dirname + "/views"); // view 경로설정
 
 //app.set('view engine', "pug");
-app.set('view engine', 'ejs');
+app.set('view engine', 'html');
 app.engine('html', require('ejs').renderFile);
 
 // user에게 public folder를 사용가능하게 제공 /public 이동시 public폴더를 볼 수있음 

@@ -19,13 +19,10 @@ router.post('/upload', upload.single('upload_photo'), function (req, res, next) 
         var insertData = "INSERT INTO images(image_src, owner) VALUES(?, ?)"
         db.run(insertData, [imgsrc, req.user.id], (err, result) => {
             if (err) throw err
-            console.log("file uploaded")
+            console.log("file uploaded");
         })
         //console.log(req.user);
         res.redirect("/myaccount");
     } 
-}) //end router.post
-  
-
-
+}); //end router.post
 module.exports = router;
