@@ -13,6 +13,11 @@ router.get('/', ensureLoggedIn(),
       [req.user.id],
       function (err, rows) {
         if (err) { return next(err); }
+        console.log(rows);
+        res.render('profile.html', {
+          user: req.user,
+          src_row: rows
+        });/*
         if (rows != undefined) {
           console.log(rows);
           (rows).forEach((row) => {
@@ -23,6 +28,7 @@ router.get('/', ensureLoggedIn(),
             });
           });
         }
+        */
       } //end function(err , row )
     ) // end db.get     
   }); //end router.get
