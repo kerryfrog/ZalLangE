@@ -86,22 +86,26 @@
     </header>
     <main class="c-main-container">
         <h1>Let's trade photo</h1>
-        <p>id: <%= user.id %> </p>
-        <p>nickname : <%= user.nickname %></p>
+        <p>id: <%= user.id %>
+        </p>
+        <p>nickname : <%= user.nickname %>
+        </p>
 
         <h3> My ZZals </h3>
-        <% if(src_row) { %>
-            <% var tmp = JSON.stringify(src_row.image_src) %>
-            <img src ="<%= tmp.substring(1, tmp.length-1) %>" >   
-        <% } %>
+        <script>
+            if (src_row) {
+                var tmp = JSON.stringify(src_row.image_src);
+                document.write(`<img src= ${tmp.substring}(1, ${tmp.length} - 1) + >`); // 뭔가 고쳐야됨... 뭔가 이상함
+            }
+        </script>
 
         <hr>
         <h3> Upload Photo </h3>
         <form action="/photo/upload" enctype="multipart/form-data" method="post">
-        <input type="file" name="upload_photo">
-        <button type="submit" class="btn btn-primary">Upload</button>
+            <input type="file" name="upload_photo">
+            <button type="submit" class="btn btn-primary">Upload</button>
         </form>
-        
+
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="../public/bootstrap_main/js/bootstrap.js"></script>
