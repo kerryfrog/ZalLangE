@@ -9,12 +9,12 @@ var router = express.Router();
 router.get('/', ensureLoggedIn(),
   function (req, res, next) {
     // 해당 계정이 가지고 있는 img src 불러오기 
-    db.get("SELECT image_src FROM images WHERE owner=?",
+    db.all("SELECT image_src FROM images WHERE owner=?",
       [req.user.id],
       function (err, row) {
         if (err) { return next(err); }
-        console.log("query answer is :", row);
-        res.render('profile.html', {
+        //console.log("query answer is :", row);
+        res.render('profile.ejs', {
           user: req.user,
           src_row: row
         });
