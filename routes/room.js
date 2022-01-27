@@ -16,7 +16,7 @@ router.get('/',
           nickname: row.nickname,
           id: row.id
         };
-        res.render('deal', {
+        res.render('deal.html', {
           user: user
         });
       });
