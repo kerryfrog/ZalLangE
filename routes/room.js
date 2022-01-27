@@ -4,8 +4,7 @@ var db = require('../lib/db');
 
 var router = express.Router();
 
-
-router.post('/room',
+router.get('/',
   ensureLoggedIn(),
   function (req, res, next) {
     db.get('SELECT rowid AS rowid, nickname, id FROM users WHERE rowid = ?', [req.user.rowid],

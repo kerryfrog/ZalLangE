@@ -23,6 +23,9 @@
         function goProfilePage(){
             location.href = "/myaccount";
         }
+        function goDealPage() {
+            location.href = "/room";
+        }
         $(document).ready(function(){
          $("#navbar").load("navbar.html")
         /* id 지정을 통해서도 가능합니다. 
@@ -87,6 +90,7 @@
     <main class="c-main-container">
         <h1>Let's trade photo</h1>
         <% if (user) { %>
+            <p><button type="submit" onclick="goDealPage()" class="btn btn-primary">이거랑 거래할 거 있나요?</button></p>
             <a href="/room"> 이거랑 거래할 거 있나요?</a>
             <%} else {%>
                 <p>You haven't logged in yet. Please log in.</p>
