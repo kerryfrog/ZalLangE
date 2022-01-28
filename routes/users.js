@@ -6,14 +6,14 @@ var db = require('../lib/db');
 var router = express.Router();
 
 router.get('/new', function(req,res,next){
-    res.render("signup");
+    res.render("signup.html");
 });
 
 router.post('/', function(req, res, next) {
     var salt = crypto.randomBytes(16);
-    console.log(req.body);
     crypto.pbkdf2(req.body.password, salt, 310000, 32, 'sha256', function(err, hashedPassword) {
       if (err) { return next(err); }
+      
       db.run('INSERT INTO users (id, hashed_password, salt, nickname) VALUES (?, ?, ?, ?)', [
         req.body.id,
         hashedPassword,
@@ -36,3 +36,10 @@ router.post('/', function(req, res, next) {
   });
 
 module.exports = router;
+/* 
+회원가입 후 바로 로그인 안되는 오류 발생 
+이유는 추정하건데 .. 
+db sqlite의 update 가 한번에 반영되지 않기 때문 아닐까 ? /. . 흠 
+잘 모르겠다 ..
+
+*/
