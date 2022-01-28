@@ -13,7 +13,7 @@ router.get('/', ensureLoggedIn(),
       [req.user.id],
       function (err, rows) {
         if (err) { return next(err); }
-        res.render('profile.html', {
+        res.render('profile.ejs', {
           user: req.user,
           srcRow: rows
         });
