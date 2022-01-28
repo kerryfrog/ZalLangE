@@ -93,15 +93,12 @@
 
         <h3> My ZZals </h3>
 
-        <% src_row.forEach(row => { %>
-            <% var tmp = JSON.stringify(row) %>
-            <% console.log(tmp.image_src) %>
+        <% srcRow.forEach(row => { %>
+            <% var tmp = JSON.stringify(row.image_src) %>
+            <% console.log(tmp) %>
              <img src ="<%=tmp.substring(1, tmp.length-1)%>"> 
             
         <% }) %>
-        
-
-
         <hr>
         <h3> Upload Photo </h3>
         <form action="/photo/upload" enctype="multipart/form-data" method="post">
