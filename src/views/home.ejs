@@ -5,10 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"-->
     <link href="../public/bootstrap.css" rel="stylesheet" id="bootstrap-css">
-    <!--link href="../public/bootstrap_main/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"-->
-
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
@@ -23,11 +20,9 @@
         function goProfilePage(){
             location.href = "/myaccount";
         }
-        $(document).ready(function(){
-         $("#navbar").load("navbar.html")
-        /* id 지정을 통해서도 가능합니다. 
-         $("#header").load("header.html #navbar")
-         */       
+        function goDealPage() {
+            location.href = "/room";
+        }     
       });
     </script>
 
@@ -41,24 +36,12 @@
     </header>
     <main class="c-main-container">
         <h1>Let's trade photo</h1>
-        <p>id: <%= user.id %> </p>
-        <p>nickname : <%= user.nickname %></p>
-
-        <h3> My ZZals </h3>
-
-        <% srcRow.forEach(row => { %>
-            <% var tmp = JSON.stringify(row.image_src) %>
-            <img src ="<%=tmp.substring(1, tmp.length-1)%>">
-            <% console.log(tmp) %>
-        <% }) %>
-        
-        <hr>
-        <h3> Upload Photo </h3>
-        <form action="/photo/upload" enctype="multipart/form-data" method="post">
-        <input type="file" name="upload_photo">
-        <button type="submit" class="btn btn-primary">Upload</button>
-        </form>
-        
+        <% if (user) { %>
+            <p><button type="submit" onclick="goDealPage()" class="btn btn-primary">이거랑 거래할 거 있나요?</button></p>
+            <a href="/room"> 이거랑 거래할 거 있나요?</a>
+            <%} else {%>
+                <p>You haven't logged in yet. Please log in.</p>
+                <%} %>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="../public/bootstrap_main/js/bootstrap.js"></script>

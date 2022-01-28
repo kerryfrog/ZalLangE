@@ -47,7 +47,7 @@ app.use(function (req, res, next) {
 app.use(passport.authenticate('session'));
 
 //home 경로 지정 
-app.get("/", (req, res) => res.render("home.html", { user: req.user }));
+app.get("/", (req, res) => res.render("home.ejs", { user: req.user }));
 
 //router 연결
 //request 요청 URL과 처리 로직을 선언한 라우팅 모듈 매핑
