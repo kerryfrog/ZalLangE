@@ -15,7 +15,7 @@ router.get('/', ensureLoggedIn(),
         if (err) { return next(err); }
         res.render('profile.ejs', {
           user: req.user,
-          src_row: row
+          src_row:rows
         });
 
       } //end function(err , row )
