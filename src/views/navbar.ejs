@@ -1,4 +1,20 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<script type="text/javaScript">
+    function goLoginPage(){
+        location.href = "/login";
+    }
+    function logOut(){
+        location.href = "/logout";
+    }
+    function goProfilePage(){
+        location.href = "/myaccount";
+    }
+    function goDealPage() {
+        location.href = "/room";
+    }     
+  });
+</script>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">ZalLangE</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03"
@@ -35,11 +51,11 @@
                 </li>
             </ul>
             <% if (user) { %>
-                <button type="submit" onclick="goProfilePage()" class="btn btn-primary">Profile</button>
-                <button type="submit" onclick="logOut()" class="btn btn-primary">Log out</button>
+                <button type="submit" onclick="goProfilePage()" class="btn btn-outline-light">Profile</button>
+                <button type="submit" onclick="logOut()" class="btn btn-outline-light">Log out</button>
 
                 <%} else {%>
-                    <button type="submit" onclick="goLoginPage()" class="btn btn-primary">Log in</button>
+                    <button type="submit" onclick="goLoginPage()" class="btn btn-outline-light">Log in</button>
                     <%} %>
         </div>
     </div>
