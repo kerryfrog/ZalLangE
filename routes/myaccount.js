@@ -17,7 +17,6 @@ router.get('/', ensureLoggedIn(),
           user: req.user,
           srcRow: rows
         });
-
       } //end function(err , row )
     ) // end db.get     
   }); //end router.get
